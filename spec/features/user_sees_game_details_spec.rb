@@ -31,6 +31,6 @@ feature "visitor sees game details" do
 
     expect(page).to have_content pong.title
     expect(page).to have_content pong.description
-    expect(page).to not_have_content chrono_trigger.description
+    expect(page).to_not have_content chrono_trigger.description
   end
 end
