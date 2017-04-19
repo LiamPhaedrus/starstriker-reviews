@@ -1,15 +1,15 @@
 <h1><%= @game.title %></h1>
 
-<div class=".game_details">
-  <div class=".game_platform">
+<div class="game_details">
+  <div class="game_platform">
     <h4>Platform: <%= @game.platform %></h4>
   </div>
-  <div class=".game_description">
+  <div class="game_description">
     <h3>Description: <%= @game.description %></h3>
   </div>
 
   <% if @game.release_year %>
-    <div class=".game_release">
+    <div class="game_release">
       <h3>Release Year: <%= @game.release_year %></h3>
     </div>
   <% end %>
