@@ -1,10 +1,8 @@
 require "rails_helper"
-
 # [] Visiting the `/games` path should contain a list of games.
 # [] Visiting the `/games/10` path should show the game details for a game with
 #    the ID of 10.
 # [] Visiting the root path should display a list of all games.
-
 feature "visitor sees games" do
   scenario "sees a list of games on index page" do
     chrono_trigger = Game.create(
