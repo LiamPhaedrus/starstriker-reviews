@@ -12,13 +12,15 @@
   </head>
 
   <body>
+
+
     <div class="top-bar">
       <div class="top-bar-left">
         <ul class="dropdown menu" data-dropdown-menu>
           <li><a href="/">Home</a></li>
           <!-- thing one and thing two are placeholders -->
-          <li><a href="#">Thing One</a></li>
-          <li><a href="#">Thing Two</a></li>
+          <li><%= link_to "Sign up", new_user_registration_path %></li>
+          <li><a href="#">Log In</a></li>
         </ul>
       </div>
       <div class="top-bar-right">
@@ -28,6 +30,8 @@
         </ul>
       </div>
     </div>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
 
     <div class="row column">
       <%= yield %>
