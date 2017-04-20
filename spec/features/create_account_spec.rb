@@ -16,9 +16,9 @@ feature 'create account', %Q{
     scenario 'button goes to create account page' do
       visit root_path #further changes can be made
       click_link 'Sign up'
-      click_link 'Log in'
-      expect(page).to have_content('Sign up')
-      expect(page).to have_content('Log in')
+
+      expect(page).to have_content('Email')
+      expect(page).to have_content('6 characters minimum')
     end
 
     scenario 'specifying valid information' do
@@ -62,5 +62,5 @@ feature 'create account', %Q{
       click_button 'Sign up'
 
       expect(page).to have_content("Welcome! You have signed up successfully.")
-    end  
+    end
 end
