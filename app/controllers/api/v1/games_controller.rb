@@ -3,6 +3,7 @@ class Api::V1::GamesController < ApplicationController
   def index
     full = request.original_fullpath
     id = full[6..-1]
+
     reviews = Game.find(id).reviews
     render json: reviews
   end

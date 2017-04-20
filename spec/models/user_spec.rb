@@ -7,8 +7,6 @@ describe User, type: :model do
     password: 'something',
     password_confirmation: 'something'
     )
-
-    it { should validate_presence_of(:email) }
-    it { should validate_presence_of(:password) }
-
+  it { should validate_presence_of(:email) }
+  it { should validate_presence_of(:password) }
 end

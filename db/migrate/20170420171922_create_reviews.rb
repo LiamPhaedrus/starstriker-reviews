@@ -5,6 +5,7 @@ class CreateReviews < ActiveRecord::Migration[5.0]
       t.integer :rating, null: false
 
       t.belongs_to :game, null: false
+      t.belongs_to :user, null: false
       t.timestamps
     end
   end
