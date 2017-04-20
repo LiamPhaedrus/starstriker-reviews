@@ -1,9 +1,5 @@
-
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20170420171922) do
-=======
-ActiveRecord::Schema.define(version: 20170419154626) do
->>>>>>> master
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
