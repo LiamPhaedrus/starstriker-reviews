@@ -7,7 +7,6 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'foundation-rails'
-
 gem 'devise'
 
 group :development do
@@ -28,8 +27,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.5'
   gem 'shoulda-matchers', require: false
   gem 'valid_attribute'
-
-end
+end 
 
 group :production do
   gem 'rails_12factor'
