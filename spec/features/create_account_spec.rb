@@ -62,7 +62,5 @@ feature 'create account', %Q{
       click_button 'Sign up'
 
       expect(page).to have_content("Welcome! You have signed up successfully.")
-    end`
-    #expect page to have content "sign out"
-  end
-# end
+    end  
+end
