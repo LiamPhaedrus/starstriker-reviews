@@ -21,18 +21,10 @@ feature 'create account', %Q{
       expect(page).to have_content('6 characters minimum')
     end
 
-    scenario 'specifying valid information' do
-      visit new_user_registration_path
-      fill_in 'Email', with: 'Koala@gmail.com'
-      fill_in 'Password', with: 'password'
-      fill_in 'Password confirmation', with: 'password'
-      click_button 'Sign up'
-      expect(page).to have_content("Welcome")
-    end
-
     scenario 'passwords do not match' do
       visit new_user_registration_path
       fill_in 'Email', with: 'X12@gmail.com'
+      fill_in 'Username', with: 'X12'
       fill_in 'Password', with: 'password'
       fill_in 'Password confirmation', with: 'psassword'
       click_button 'Sign up'
@@ -40,23 +32,28 @@ feature 'create account', %Q{
     end
 
 
-    scenario 'user name is not unique' do
+    scenario 'user email or username is not unique fails to create new user' do
       old_user = User.create(
         email: 'JoeShmo@gmail.com',
+        username: 'JoeShmo',
         password: 'something',
         password_confirmation: 'something'
         )
       visit new_user_registration_path
       fill_in 'Email', with: 'JoeShmo@gmail.com'
+      fill_in 'Username', with: 'JoeShmo'
       fill_in 'Password', with: 'password'
-      fill_in 'Password confirmation', with: 'psassword'
+      fill_in 'Password confirmation', with: 'password'
       click_button 'Sign up'
       expect(page).to have_content("Email has already been taken")
+      expect(page).to have_content("Username has already been taken")
+
     end
 
     scenario 'valid information is submitted' do
       visit new_user_registration_path
       fill_in 'Email', with: 'Xris@gmail.com'
+      fill_in 'Username', with: 'Xris'
       fill_in 'Password', with: 'password'
       fill_in 'Password confirmation', with: 'password'
       click_button 'Sign up'
