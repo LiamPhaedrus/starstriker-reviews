@@ -18,9 +18,12 @@
       <div class="top-bar-left">
         <ul class="dropdown menu" data-dropdown-menu>
           <li><a href="/">Home</a></li>
-          <!-- thing one and thing two are placeholders -->
-          <li><%= link_to "Sign up", new_user_registration_path %></li>
-          <li><a href="#">Log In</a></li>
+          <% if user_signed_in? %>
+            <li><a href="#">Profile</a></li>
+          <% else %>
+            <li><%= link_to "Sign up", new_user_registration_path %></li>
+            <li><%= link_to "Log in", new_user_session_path %></li>
+          <% end %>
         </ul>
       </div>
       <div class="top-bar-right">
