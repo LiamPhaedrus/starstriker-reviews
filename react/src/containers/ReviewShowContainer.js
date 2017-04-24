@@ -50,7 +50,7 @@ class ReviewShowContainer extends Component {
     })
     return(
       <div className="small-9 small-centered columns">
-        {reviews}
+        {reviews.reverse()}
         <FormContainer
           addNewReview={this.addNewReview}
           gameId={this.props.params.id}

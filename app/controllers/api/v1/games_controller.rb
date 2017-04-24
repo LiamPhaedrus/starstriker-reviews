@@ -8,6 +8,7 @@ class Api::V1::GamesController < ApplicationController
       review_to_send[:body] = review.body
       review_to_send[:rating] = review.rating
       review_to_send[:username] = review.user.username
+      review_to_send[:created_at] = review.created_at
       @reviews << review_to_send
     end
     render json: { :reviews => @reviews }
