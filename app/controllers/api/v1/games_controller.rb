@@ -11,6 +11,6 @@ class Api::V1::GamesController < ApplicationController
       review_to_send[:created_at] = review.created_at
       @reviews << review_to_send
     end
-    render json: { :reviews => @reviews }
+    render json: { reviews: @reviews }
   end
 end
