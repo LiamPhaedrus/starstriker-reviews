@@ -14,4 +14,5 @@ require 'rails_helper'
       expect(page).to have_content jerry.username
       expect(page).to have_content jerry.email
     end
+
   end
