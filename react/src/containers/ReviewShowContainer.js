@@ -32,6 +32,7 @@ class ReviewShowContainer extends Component {
           body={review.body}
           key={"review" + review.id}
           rating={review.rating}
+          author={review.username}
          />
       )
     })
