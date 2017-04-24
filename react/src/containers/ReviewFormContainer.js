@@ -31,9 +31,10 @@ constructor(props) {
     ) {
       let formPayload = {
         body: this.state.bodyConsumed,
-        rating: this.state.ratingSelected
+        rating: this.state.ratingSelected,
+        game_id: this.props.gameId
       };
-      this.props.trackReviews(formPayload);
+      this.props.addNewReview(formPayload);
       this.handleClearForm(event);
     }
   }

@@ -10,6 +10,7 @@ describe('ReviewShow', () => {
       <ReviewShow
         body="words go here"
         rating="5"
+        author="bobby"
       />
     );
   });
@@ -26,6 +27,8 @@ describe('ReviewShow', () => {
     expect(wrapper.find('.review-rating').text()).toBe('5 stars');
   });
 
-
+  it('should render the author with the value of rating', () => {
+    expect(wrapper.find('.review-author').text()).toBe('By: bobby');
+  });
 
 });

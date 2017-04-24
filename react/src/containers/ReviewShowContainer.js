@@ -6,9 +6,10 @@ class ReviewShowContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      reviews: []
+      reviews: [],
+      user: ''
     }
-    this.trackReviews = this.trackReviews.bind(this);
+    this.addNewReview = this.addNewReview.bind(this)
   }
 
   componentDidMount() {
@@ -16,12 +17,23 @@ class ReviewShowContainer extends Component {
     fetch(`/api/v1/games/${gameId}`)
       .then(response => response.json())
       .then(responseData => {
-        this.setState({ reviews: [...this.state.reviews, ...responseData] })
+        this.setState({
+          reviews: [...this.state.reviews, ...responseData.reviews]
+        })
       })
   }
-
-  trackReviews(submission) {
-    this.setState({ reviews: this.state.reviews.concat(submission) })
+  addNewReview(payload) {
+    fetch('/api/v1/reviews', {
+      credentials: 'same-origin',
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    })
+    .then(response => response.json())
+    .then(responseData => {
+      console.log(responseData)
+      this.setState({ reviews: [...this.state.reviews, responseData.review] })
+    })
   }
 
   render() {
@@ -39,7 +51,10 @@ class ReviewShowContainer extends Component {
     return(
       <div className="small-9 small-centered columns">
         {reviews}
-        <FormContainer trackReviews={this.trackReviews} />
+        <FormContainer
+          addNewReview={this.addNewReview}
+          gameId={this.props.params.id}
+        />
       </div>
     )
   }
