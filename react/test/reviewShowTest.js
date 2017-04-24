@@ -14,11 +14,18 @@ describe('ReviewShow', () => {
     );
   });
 
-  it('should render p tags', () => {
-    expect(wrapper.find('p')).toBePresent();
+  it('should render the review-body', () => {
+    expect(wrapper.find('.review-body')).toBePresent();
   });
 
-  it('should render a p tag with the body property value', () => {
-    expect(wrapper.find('p')).toIncludeText('words');
+  it('should render review-body with the value of body', () => {
+    expect(wrapper.find('.review-body').text()).toBe('words go here');
   });
+
+  it('should render the rating with the value of rating', () => {
+    expect(wrapper.find('.review-rating').text()).toBe('5 stars');
+  });
+
+
+
 });
