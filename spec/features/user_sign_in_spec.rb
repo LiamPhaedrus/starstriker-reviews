@@ -15,7 +15,11 @@ feature 'sign-in' do
   end
 
   scenario 'user is already logged in' do
-    jerry = User.create(email: "JTBarret@places.com", username: 'jerry', password: "jeckles")
+    jerry = User.create(
+      email: "JTBarret@places.com",
+      username: 'jerry',
+      password: "jeckles"
+    )
 
     visit new_user_session_path
     fill_in 'Email', with: jerry.email
@@ -32,7 +36,11 @@ feature 'sign-in' do
   end
 
   scenario 'user successfully signs in' do
-    bob = User.create(email: "borat@clues.com", username: 'bob', password: "peckering")
+    bob = User.create(
+      email: "borat@clues.com",
+      username: 'bob',
+      password: "peckering"
+    )
     visit new_user_session_path
 
     fill_in 'Email', with: bob.email
@@ -45,7 +53,11 @@ feature 'sign-in' do
   end
 
   scenario 'user enters invalid information and cannot sign in' do
-    joe = User.create(email: "thing@clues.com", username: 'joe', password: "peckering")
+    joe = User.create(
+      email: "thing@clues.com",
+      username: 'joe',
+      password: "peckering"
+    )
     visit new_user_session_path
 
     fill_in 'Email', with: joe.email
