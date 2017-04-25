@@ -69,4 +69,12 @@ feature 'sign-in' do
     expect(find_field("Email").value).to have_content(joe.email)
     expect(find_field("Password").value).to be_nil
   end
+
+  scenario 'user clicks link because they forgot their password' do
+    visit user_session_path
+    click_link 'Forgot your password?'
+
+    expect(page).to have_content('Forgot your password?')
+    expect(page).to have_button('Send me reset password instructions')
+  end
 end
