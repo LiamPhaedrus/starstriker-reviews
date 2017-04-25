@@ -18,12 +18,13 @@
       <div class="top-bar-left">
         <ul class="dropdown menu" data-dropdown-menu>
           <li><a href="/">Home</a></li>
+          <% if !user_signed_in? %>
+          <li><%= link_to "Sign up", new_user_registration_path %></li>
+          <li><%= link_to "Log in", new_user_session_path %></li>
+          <%end%>
           <% if user_signed_in? %>
-            <li><a href="#">Profile</a></li>
-            <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
-          <% else %>
-            <li><%= link_to "Sign up", new_user_registration_path %></li>
-            <li><%= link_to "Log in", new_user_session_path %></li>
+          <li><a href=#>Profile</a></li>
+          <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
           <% end %>
         </ul>
       </div>
@@ -37,7 +38,7 @@
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
-    <div class="row column">
+    <div class="row column main">
       <%= yield %>
     </div>
 
