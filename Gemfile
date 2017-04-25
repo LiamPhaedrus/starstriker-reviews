@@ -22,7 +22,7 @@ end
 
 group :development, :test do
   gem 'capybara'
-  gem 'factory_girl'
+  gem 'factory_girl_rails'
   gem 'launchy'
   gem 'pry-rails'
   gem 'rspec-rails', '~> 3.5'
@@ -35,3 +35,4 @@ group :production do
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'carrierwave', '~> 1.0'

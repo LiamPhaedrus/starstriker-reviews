@@ -20,7 +20,6 @@ feature 'sign-in' do
       username: 'jerry',
       password: "jeckles"
     )
-
     visit new_user_session_path
     fill_in 'Email', with: jerry.email
 
