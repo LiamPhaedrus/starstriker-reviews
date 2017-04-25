@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-  feature 'user can edit profile' do
+feature 'user can edit profile' do
   scenario 'user sees edit page' do
     jerry = FactoryGirl.create(:user)
     visit root_path
