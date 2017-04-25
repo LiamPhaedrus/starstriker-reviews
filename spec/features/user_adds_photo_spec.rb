@@ -8,7 +8,7 @@ feature 'user adds avatar' do
     fill_in 'Password', with: 'password'
     fill_in 'Password confirmation', with: 'password'
     attach_file :profile_photo,
-    "#{Rails.root}/spec/support/images/Starstriker.png"
+      "#{Rails.root}/spec/support/images/Starstriker.png"
     click_button 'Sign up'
 
     visit user_path(User.find_by(email: "xris@gmail.com"))
