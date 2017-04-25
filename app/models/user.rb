@@ -5,6 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   validates :username, presence: true, uniqueness: true
-
   mount_uploader :profile_photo, ProfilePhotoUploader
 end
