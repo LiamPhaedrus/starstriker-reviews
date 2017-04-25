@@ -18,7 +18,11 @@ feature 'sign-out' do
   end
 
   scenario 'once user logs in, Logout link is visible in navbar' do
-    beppy = User.create(email: "Commerce@deb.com", username: "Beppy", password: "partridge")
+    beppy = User.create(
+      email: "Commerce@deb.com",
+      username: "Beppy",
+      password: "partridge"
+    )
 
     visit new_user_session_path
     fill_in 'Email', with: beppy.email
@@ -34,8 +38,13 @@ feature 'sign-out' do
     expect(page).to_not have_link("Log in")
   end
 
-  scenario 'when user is signed in, clicking Logout ends the user session and returns to index' do
-    jemp = User.create(email: "ohara@plane.com", username: "Borshwa", password: "lobstertail")
+  scenario 'when user is signed in, clicking Logout ends the user session and
+            returns to index' do
+    jemp = User.create(
+      email: "ohara@plane.com",
+      username: "Borshwa",
+      password: "lobstertail"
+    )
 
     visit new_user_session_path
     fill_in 'Email', with: jemp.email

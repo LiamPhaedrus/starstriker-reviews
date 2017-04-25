@@ -19,10 +19,10 @@ feature 'sign-in' do
       email: "JTBarret@places.com",
       username: 'jerry',
       password: "jeckles"
-      )
-
+    )
     visit new_user_session_path
     fill_in 'Email', with: jerry.email
+
     fill_in 'Username', with: 'jerry'
     fill_in 'Password', with: 'jeckles'
     click_button 'Log in'
@@ -41,7 +41,6 @@ feature 'sign-in' do
       username: 'bob',
       password: "peckering"
     )
-
     visit new_user_session_path
 
     fill_in 'Email', with: bob.email
@@ -59,7 +58,6 @@ feature 'sign-in' do
       username: 'joe',
       password: "peckering"
     )
-
     visit new_user_session_path
 
     fill_in 'Email', with: joe.email
