@@ -27,7 +27,7 @@ feature 'user forgot their password' do
     click_link 'Forgot your password?'
     fill_in 'Email', with: jerry.email
     click_button 'Send me reset password instructions'
-  #
-  #   expect(page).to have_content("You will receive an email with instructions on how to reset your password in a few minutes.")
+
+    expect(page).to have_content("You will receive an email with instructions ")
   end
 end
