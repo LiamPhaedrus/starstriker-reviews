@@ -89,4 +89,23 @@ feature "registered user can add games" do
     click_button 'Add this Game'
     expect(page).to have_content("Release year is not a number")
   end
+  scenario "new game appears on list on main page" do
+    bob = FactoryGirl.create(:user)
+    visit new_user_session_path
+    fill_in 'Email', with: bob.email
+    fill_in 'Username', with: bob.username
+    fill_in 'Password', with: bob.password
+    click_button 'Log in'
+
+    visit new_game_path
+
+    fill_in 'Title', with: 'Title of a Game'
+    fill_in 'Description', with: 'Some kind of description'
+    fill_in 'Platform', with: 'NES'
+    fill_in 'Release Year', with: '1990'
+    click_button 'Add this Game'
+
+    visit root_path
+    expect(page).to have_content("Title of a Game")
+  end
 end
