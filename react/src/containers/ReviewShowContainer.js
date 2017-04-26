@@ -10,6 +10,7 @@ class ReviewShowContainer extends Component {
       user: []
     }
     this.addNewReview = this.addNewReview.bind(this)
+    this.handleVote = this.handleVote.bind(this)
   }
 
   componentDidMount() {
@@ -40,6 +41,11 @@ class ReviewShowContainer extends Component {
     })
   }
 
+  handleVote(id, user){
+    console.log(id)
+    console.log(user)
+  }
+
   render() {
     let reviews = this.state.reviews.map(review => {
       return(
@@ -49,12 +55,15 @@ class ReviewShowContainer extends Component {
           key={"review" + review.id}
           rating={review.rating}
           author={review.username}
+          votes={review.votes}
+          handleVote={this.handleVote}
+          current_user={this.state.user}
          />
       )
     })
-    console.log(this.state.user)
-    let formShow = this.state.user.map((thing, index) => {
-      if (thing) {
+
+    let formShow = this.state.user.map((user, index) => {
+      if (user) {
         return(
           <FormContainer
             key={index}

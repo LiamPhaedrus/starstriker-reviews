@@ -8,10 +8,23 @@ class Api::V1::GamesController < ApplicationController
       review_to_send[:body] = review.body
       review_to_send[:rating] = review.rating
       review_to_send[:username] = review.user.username
+      updowns = []
+      review.updowns.each do |updown|
+        thing = {}
+        thing[:votes] = updown.vote
+        thing[:reviewer] = updown.user_id
+        updowns << thing
+      end
+      review_to_send[:votes] = updowns
       review_to_send[:created_at] = review.created_at
       @reviews << review_to_send
     end
-    user = user_signed_in?
+
+    if user_signed_in?
+      user = current_user.id
+    else
+      user = user_signed_in?
+    end
 
     render json: { reviews: @reviews, user: user }
   end
