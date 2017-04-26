@@ -2,10 +2,22 @@ import React from 'react';
 import { browserHistory, Link } from 'react-router';
 
 const ReviewShow = (props) => {
-  const { body, rating, author, handleVote, votes, id, current_user } = props
+  const { body, rating, author, handleVote, votes, id, thisUser, hasVoted } = props
 
-  let onVoteClick = () =>{
-    handleVote(id, current_user)
+  let onUpClick = () => {
+    let payload = {
+      id: id,
+      vote: true
+    }
+    handleVote(payload)
+  }
+
+  let onDownClick = () => {
+    let payload = {
+      id: id,
+      vote: false
+    }
+    handleVote(payload)
   }
 
   let upCount = () => {
@@ -29,14 +41,14 @@ const ReviewShow = (props) => {
   }
 
   return(
-    <div className="review-show">
+    <div className={hasVoted}>
       <p className="review-body">{body}</p>
       <p className="review-rating">{rating} stars</p>
       <p className="review-author">By: {author}</p>
-      <span className="upvote" onClick={onVoteClick}>
+      <span className="upvote" onClick={onUpClick}>
         ⬆{upCount()}
       </span>
-      <span className="downvote" onClick={onVoteClick}>
+      <span className="downvote" onClick={onDownClick}>
         ⬇{downCount()}
       </span>
     </div>

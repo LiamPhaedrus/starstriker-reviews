@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReviewShow from '../components/ReviewShow';
 import FormContainer from './ReviewFormContainer';
+import Notifications, { notify } from 'react-notify-toast';
 
 class ReviewShowContainer extends Component {
   constructor(props) {
@@ -11,6 +12,7 @@ class ReviewShowContainer extends Component {
     }
     this.addNewReview = this.addNewReview.bind(this)
     this.handleVote = this.handleVote.bind(this)
+    this.hasUserVoted = this.hasUserVoted.bind(this)
   }
 
   componentDidMount() {
@@ -36,18 +38,43 @@ class ReviewShowContainer extends Component {
     })
     .then(response => response.json())
     .then(responseData => {
-      console.log(responseData)
       this.setState({ reviews: [...this.state.reviews, responseData.review] })
     })
   }
 
-  handleVote(id, user){
-    console.log(id)
-    console.log(user)
+  handleVote(payload){
+    fetch(`/api/v1/reviews/${payload.id}`, {
+      credentials: 'include',
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({updown: payload})
+    })
+    .then(response => response.json())
+    .then(responseData => {
+      if (responseData.status !== 201) {
+        notify.show(responseData.error, 'error', 1800)
+      } else {
+        notify.show(responseData.message, 'success', 1800)
+        this.setState({ reviews: responseData.reviews })
+      }
+    })
+  }
+
+  hasUserVoted(reviewers) {
+    if (reviewers.includes(this.state.user[0])) {
+      return 'review-show voted'
+    } else {
+      return 'review-show'
+    }
   }
 
   render() {
     let reviews = this.state.reviews.map(review => {
+      let reviewers = []
+      review.votes.forEach(vote => {
+        reviewers.push(vote.reviewer)
+      })
+
       return(
         <ReviewShow
           id={review.id}
@@ -57,7 +84,8 @@ class ReviewShowContainer extends Component {
           author={review.username}
           votes={review.votes}
           handleVote={this.handleVote}
-          current_user={this.state.user}
+          thisUser={this.state.user[0]}
+          hasVoted={this.hasUserVoted(reviewers)}
          />
       )
     })
@@ -74,7 +102,8 @@ class ReviewShowContainer extends Component {
       }
     })
     return(
-      <div className="small-9 small-centered columns">
+      <div className="small-9 small-centered columns main">
+        <Notifications />
         {reviews.reverse()}
         {formShow}
       </div>
