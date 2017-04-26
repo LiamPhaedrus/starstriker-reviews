@@ -23,7 +23,7 @@ class Game < ApplicationRecord
     numericality: { only_integer: true }
 
   pg_search_scope :search_game_only, against: [:title, :description]
-  scope :search, -> (query) { search_game_only(query) if query.present? }
+  scope :search, ->(query) { search_game_only(query) if query.present? }
 
   has_many :reviews
 end

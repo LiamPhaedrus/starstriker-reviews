@@ -20,6 +20,7 @@ feature "visitor can search games" do
     click_button 'Search'
 
     expect(page).to have_content("Whee")
+    expect(page).to_not have_content(third_game.title)
 
     fill_in 'query', with: "Game"
     click_button 'Search'

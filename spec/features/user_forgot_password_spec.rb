@@ -10,7 +10,7 @@ feature 'user forgot their password' do
   end
 
   scenario 'user enters invalid email' do
-    jerry = FactoryGirl.create(:user)
+    FactoryGirl.create(:user)
 
     visit user_session_path
     click_link 'Forgot your password?'

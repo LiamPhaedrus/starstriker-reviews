@@ -30,8 +30,8 @@ feature 'expectations for an admin' do
 
   scenario 'admin clicks delete and removes user from database' do
     bob = FactoryGirl.create(:admin)
-    joe = User.create(email: 'joe@aol.com', username: 'joeojoe',
-          password: 'pickles', admin: false)
+    User.create(email: 'joe@aol.com', username: 'joeojoe',
+      password: 'pickles', admin: false)
 
     visit new_user_session_path
     fill_in 'Email', with: bob.email
