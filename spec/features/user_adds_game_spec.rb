@@ -29,7 +29,7 @@ feature "registered user can add games" do
 
     fill_in 'Title', with: 'Title of a Game'
     fill_in 'Description', with: 'Some kind of description'
-    fill_in 'Platform', with: 'NES'
+    select 'NES', from: 'Platform'
     fill_in 'Release Year', with: '1990'
     click_button 'Add this Game'
 
@@ -51,7 +51,7 @@ feature "registered user can add games" do
 
     fill_in 'Title', with: 'Title of a Game'
     fill_in 'Description', with: 'Some kind of description'
-    fill_in 'Platform', with: 'NES'
+    select 'NES', from: 'Platform'
 
     click_button 'Add this Game'
 
@@ -101,7 +101,7 @@ feature "registered user can add games" do
 
     fill_in 'Title', with: 'Title of a Game'
     fill_in 'Description', with: 'Some kind of description'
-    fill_in 'Platform', with: 'NES'
+    select 'NES', from: 'Platform'
     fill_in 'Release Year', with: '1990'
     click_button 'Add this Game'
 

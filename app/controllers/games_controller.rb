@@ -9,6 +9,7 @@ class GamesController < ApplicationController
 
   def new
     @game = Game.new
+    @platform_collection = Game::PLATFORMS
   end
 
   def create
@@ -17,6 +18,7 @@ class GamesController < ApplicationController
       flash[:notice] = 'Game successfully saved!'
       redirect_to @game
     else
+      @platform_collection = Game::PLATFORMS
       render action: 'new'
     end
   end
