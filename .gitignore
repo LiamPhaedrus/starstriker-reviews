@@ -21,3 +21,9 @@
 
 # Ignore Byebug command history file.
 .byebug_history
+
+# Ignore environment variables
+.env
+
+# Ignore local uploads
+/public/uploads

@@ -20,7 +20,6 @@ feature 'sign-in' do
       username: 'jerry',
       password: "jeckles"
     )
-
     visit new_user_session_path
     fill_in 'Email', with: jerry.email
 
@@ -69,5 +68,13 @@ feature 'sign-in' do
     expect(page).to have_content("Invalid Email or password.")
     expect(find_field("Email").value).to have_content(joe.email)
     expect(find_field("Password").value).to be_nil
+  end
+
+  scenario 'user clicks link because they forgot their password' do
+    visit user_session_path
+    click_link 'Forgot your password?'
+
+    expect(page).to have_content('Forgot your password?')
+    expect(page).to have_button('Send me reset password instructions')
   end
 end

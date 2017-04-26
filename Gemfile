@@ -22,12 +22,13 @@ end
 
 group :development, :test do
   gem 'capybara'
-  gem 'factory_girl'
+  gem 'factory_girl_rails'
   gem 'launchy'
   gem 'pry-rails'
   gem 'rspec-rails', '~> 3.5'
   gem 'shoulda-matchers', require: false
   gem 'valid_attribute'
+  gem "dotenv-rails"
 end
 
 group :production do
@@ -35,3 +36,7 @@ group :production do
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem 'carrierwave'
+gem 'fog'
+gem 'fog-aws'
