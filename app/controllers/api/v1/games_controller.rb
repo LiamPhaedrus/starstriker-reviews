@@ -1,5 +1,5 @@
 class Api::V1::GamesController < ApplicationController
-  skip_before_action :verify_authenticity_token
+  skip_before_action :verify_authenticity_token, only: [:show]
   def show
     @reviews = []
     Game.find(params[:id]).reviews.each do |review|
@@ -11,6 +11,8 @@ class Api::V1::GamesController < ApplicationController
       review_to_send[:created_at] = review.created_at
       @reviews << review_to_send
     end
-    render json: { reviews: @reviews }
+    user = user_signed_in?
+
+    render json: { reviews: @reviews, user: user }
   end
 end

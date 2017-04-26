@@ -7,18 +7,22 @@ class ReviewShowContainer extends Component {
     super(props);
     this.state = {
       reviews: [],
-      user: ''
+      user: []
     }
     this.addNewReview = this.addNewReview.bind(this)
   }
 
   componentDidMount() {
     let gameId = this.props.params.id;
-    fetch(`/api/v1/games/${gameId}`)
+    fetch(`/api/v1/games/${gameId}`, {
+      credentials: 'include',
+      method: 'GET'
+    })
       .then(response => response.json())
       .then(responseData => {
         this.setState({
-          reviews: [...this.state.reviews, ...responseData.reviews]
+          reviews: [...this.state.reviews, ...responseData.reviews],
+          user: [responseData.user]
         })
       })
   }
@@ -48,13 +52,22 @@ class ReviewShowContainer extends Component {
          />
       )
     })
+    console.log(this.state.user)
+    let formShow = this.state.user.map((thing, index) => {
+      if (thing) {
+        return(
+          <FormContainer
+            key={index}
+            addNewReview={this.addNewReview}
+            gameId={this.props.params.id}
+          />
+        )
+      }
+    })
     return(
       <div className="small-9 small-centered columns">
         {reviews.reverse()}
-        <FormContainer
-          addNewReview={this.addNewReview}
-          gameId={this.props.params.id}
-        />
+        {formShow}
       </div>
     )
   }
