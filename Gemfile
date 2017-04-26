@@ -36,6 +36,7 @@ group :production do
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-gem 'carrierwave', '~> 1.0'
-gem 'carrierwave-aws'
+
+gem 'carrierwave'
 gem 'fog'
+gem 'fog-aws'
