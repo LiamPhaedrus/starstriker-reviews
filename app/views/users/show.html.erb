@@ -7,7 +7,9 @@
   <div class="user_admin?">
     <h3>Admin: <%= @user.admin %></h3>
   </div>
+  <% if current_user.admin? %>
   <div>
     <%= button_to 'Delete', @user, method: :delete %>
   </div>
+  <% end %>
 </div>
