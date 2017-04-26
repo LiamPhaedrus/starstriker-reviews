@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root to: 'games#index'
-  resources :games, only: [:index, :show]
+  resources :games, only: [:index, :show, :create, :new]
 
 
   namespace :api do
