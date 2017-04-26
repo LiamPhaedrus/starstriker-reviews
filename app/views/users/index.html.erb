@@ -1,4 +1,11 @@
-<h1>This is something</h1>
-<div>
-  <%= render "user/login" %>
+<h1> Admin Edit Users Page </h1>
+ <div class="users_list">
+  <h2>User List:</h2>
+  <ul>
+    <% @users.each do |user| %>
+      <li><%= link_to user.username, user %>
+      |  <%= link_to "delete", user, method: :delete, data: { confirm: "You sure?" } %>
+    <% end %>
+  </li>
+</ul>
 </div>
