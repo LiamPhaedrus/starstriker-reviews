@@ -7,9 +7,9 @@ class Game < ApplicationRecord
     ["Arcade", "Arcade"],
     ["Gameboy", "Gameboy"],
     ["Sega Genesis", "Sega Genesis"]
-  ]
+  ].freeze
 
-  validates :title, presence: true
+  validates :title, presence: true, uniqueness: true
   validates :description, presence: true
   validates :platform,
     presence: true,
