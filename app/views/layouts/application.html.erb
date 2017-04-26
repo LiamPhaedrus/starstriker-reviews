@@ -30,8 +30,12 @@
       </div>
       <div class="top-bar-right">
         <ul class="menu">
-          <li><input type="search" placeholder="Search"></li>
-          <li><button type="button" class="button">Search</button></li>
+          <li class="has-form">
+            <%= form_tag games_path, method: :get do %>
+              <%= text_field_tag :query %>
+              <%= submit_tag "Search" %>
+            <% end %>
+          </li>
         </ul>
       </div>
     </div>

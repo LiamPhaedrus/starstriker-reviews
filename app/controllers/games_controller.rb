@@ -1,6 +1,10 @@
 class GamesController < ApplicationController
   def index
-    @games = Game.all
+    if Game.search(params[:query])
+      @games = Game.search(params[:query])
+    else
+      @games = Game.all
+    end
   end
 
   def show
