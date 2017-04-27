@@ -12,13 +12,18 @@ class GamesController < ApplicationController
   end
 
   def new
-    @game = Game.new
-    @platform_collection = Game::PLATFORMS
+    if user_signed_in?
+      @game = Game.new
+      @platform_collection = Game::PLATFORMS
+    else
+      flash[:notice] = 'You must be signed in to add a game'
+      redirect_to root_path
+    end
   end
 
   def create
     @game = Game.new(game_params)
-    if @game.save
+    if @game.save && user_signed_in?
       flash[:notice] = 'Game successfully saved!'
       redirect_to @game
     else
