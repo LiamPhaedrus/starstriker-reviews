@@ -20,9 +20,9 @@ class Api::V1::ReviewsController < ApplicationController
     else
       flash[:notice] = "Review failed to save"
       render json: {
-        status: 500,
+        status: 400,
         error: review.errors
-      }.to_json
+      }.to_json, status: :bad_request
     end
   end
 
@@ -48,7 +48,7 @@ class Api::V1::ReviewsController < ApplicationController
         render json: {
           status: 500,
           error: new_vote.errors.full_messages
-        }.to_json
+        }.to_json, status: :bad_request
       end
     elsif updown.update!(vote: update_params['vote'])
       render json: {
@@ -60,7 +60,7 @@ class Api::V1::ReviewsController < ApplicationController
       render json: {
         status: 500,
         error: updown.errors
-      }.to_json
+      }.to_json, status: :bad_request
     end
   end
 

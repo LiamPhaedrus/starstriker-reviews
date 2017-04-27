@@ -21,10 +21,10 @@ class Api::V1::GamesController < ApplicationController
     end
 
     user = if user_signed_in?
-            current_user.id
-          else
-            user_signed_in?
-          end
+      current_user.id
+    else
+      user_signed_in?
+    end
     render json: { reviews: @reviews, user: user }
   end
 end
