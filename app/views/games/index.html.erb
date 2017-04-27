@@ -5,8 +5,12 @@
   <h2>Game List:</h2>
   <div class="game-list">
     <% @games.each do |game| %>
-      <p class='animated slideInLeft'><%= link_to game.title, game %></p>
+      <%if user_signed_in? && current_user.admin? %>
+        <span class='animated slideInLeft'><%= link_to game.title, game %></span>
+        <span class='animated slideInLeft'><%= link_to "delete", game, method: :delete, data: { confirm: "You sure?" } %> </span><br/>
+       <%else%>
+        <p><%= link_to game.title, game %></p>
+       <%end%>
     <% end %>
   </div>
 </div>
-<div id="react" />

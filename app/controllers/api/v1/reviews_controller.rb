@@ -11,14 +11,7 @@ class Api::V1::ReviewsController < ApplicationController
       review_to_send[:body] = review.body
       review_to_send[:rating] = review.rating
       review_to_send[:username] = review.user.username
-      updowns = []
-      review.updowns.each do |updown|
-        thing = {}
-        thing[:votes] = updown.vote
-        thing[:reviewer] = updown.user_id
-        updowns << thing
-      end
-      review_to_send[:votes] = updowns
+      review_to_send[:votes] = []
       review_to_send[:created_at] = review.created_at
       render json: {
        status: 201,
