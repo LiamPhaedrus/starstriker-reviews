@@ -2,4 +2,27 @@
   border: 1px solid black;
   padding: 5px;
   margin: 10px;
+  background-color: rgba(254, 254, 254, 0.80);
+}
+
+.review-body {
+  background-color: #A5ACAF;
+  border-radius: 1px;
+  padding: 10px;
+}
+
+.review-rating{
+  background-color: #A5ACAF;
+  border-radius: 1px;
+  padding: 10px;
+  color: gold;
+  text-align: center;
+}
+
+.review-author{
+  background-color: #A5ACAF;
+  border-radius: 1px;
+  padding: 10px;
+  color: lightblue;
+  text-align: center;
 }

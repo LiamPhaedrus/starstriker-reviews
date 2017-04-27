@@ -4,7 +4,7 @@ import { browserHistory, Link } from 'react-router';
 const ReviewShow = (props) => {
   const { body, rating, author } = props
   return(
-    <div className="review-show">
+    <div className="review-show animated zoomInDown">
       <p className="review-body">{body}</p>
       <p className="review-rating">{rating} stars</p>
       <p className="review-author">By: {author}</p>
