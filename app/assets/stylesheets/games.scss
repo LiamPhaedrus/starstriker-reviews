@@ -1,20 +1,17 @@
 .game-list a {
-   float: left;
-   text-indent: 2;
-   margin-left: 10px;
- }
-
-.game-list a {
   background-color: white;
-  padding: 5px;
   font-weight: 500;
   line-height: 3;
-
-}
+  padding: 5px;
+  float: left;
+  text-indent: 2;
+  margin-left: 10px;
+ }
 
 .game-list a:hover {
   text-decoration: underline;
 }
+
 .game-details {
   background-color: rgba(254, 254, 254, 0.52);
   text-align: center;
