@@ -9,7 +9,7 @@ describe Api::V1::ReviewsController, type: :controller do
 
   describe "POST #create" do
     before(:each) do
-      @correct_review_params =  {
+      @correct_review_params = {
         body: "This game rocks", rating: 5, game_id: @game.id
       }
     end
