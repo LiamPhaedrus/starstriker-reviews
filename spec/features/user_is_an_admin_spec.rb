@@ -65,13 +65,13 @@ feature 'expectations for an admin' do
       title: "Game Game",
       description: "It nice",
       platform: "NES"
-      )
+    )
     Review.create(
       body: "Game review",
       rating: '3',
       game: game,
       user: bob
-      )
+    )
 
     visit new_user_session_path
     fill_in 'Email', with: bob.email
