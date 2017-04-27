@@ -6,4 +6,11 @@
   <%= image_tag @user.profile_photo %>
 </div>
 
+<div>Admin?:<%=@user.admin? %></div>
 <%= link_to 'Edit Your Profile', edit_user_registration_path %>
+<div>
+<% if current_user.admin? === true %>
+  <div><%= link_to 'Users', users_path %></div>
+<%else%>
+<%end%>
+</div>

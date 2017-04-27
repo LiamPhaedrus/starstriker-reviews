@@ -1,5 +1,5 @@
 class Api::V1::GamesController < ApplicationController
-  skip_before_action :verify_authenticity_token
+  skip_before_action :verify_authenticity_token, only: [:show]
   def show
     @reviews = []
     Game.find(params[:id]).reviews.each do |review|

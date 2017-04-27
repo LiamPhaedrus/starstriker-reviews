@@ -8,6 +8,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'foundation-rails'
 gem 'devise'
+gem 'pg_search'
 
 group :development do
   gem 'listen', '~> 3.1'
@@ -28,6 +29,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.5'
   gem 'shoulda-matchers', require: false
   gem 'valid_attribute'
+  gem "dotenv-rails"
 end
 
 group :production do
@@ -35,4 +37,7 @@ group :production do
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-gem 'carrierwave', '~> 1.0'
+
+gem 'carrierwave'
+gem 'fog'
+gem 'fog-aws'

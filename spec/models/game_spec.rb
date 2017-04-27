@@ -5,7 +5,6 @@ describe Game, type: :model do
   Game.create(
     title: "Title", description: "Thing", platform: "NES", release_year: "1994"
   )
-  # we didn't use FactoryGirl because of config issues, to deal with later
   it { should validate_presence_of(:title) }
   it { should validate_presence_of(:description) }
   it { should validate_presence_of(:platform) }
