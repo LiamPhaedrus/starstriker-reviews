@@ -1,0 +1,15 @@
+<div class="game_list">
+  <h2>Review List:</h2>
+  <ul>
+    <% @games.each do |game| %>
+      <%= game.title %>:
+      <% game.reviews.each do |review| %>
+        <ul>
+          <span><%= review.body %></span>
+          <span><%= link_to "delete", review, method: :delete,
+            data: { confirm: "You sure?" } %> </span><br/>
+        </ul>
+      <% end %>
+    <% end %>
+  </ul>
+</div>

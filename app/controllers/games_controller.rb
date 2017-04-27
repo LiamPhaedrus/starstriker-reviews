@@ -27,6 +27,17 @@ class GamesController < ApplicationController
     end
   end
 
+  def destroy
+    if current_user.admin?
+      Game.find(params[:id]).reviews.destroy_all
+      Game.find(params[:id]).destroy
+      flash[:success] = "Game deleted"
+      redirect_to games_path, notice: "Game Deleted"
+    else
+      redirect_to root_path
+    end
+  end
+
   private
 
   def game_params
