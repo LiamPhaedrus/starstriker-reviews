@@ -29,6 +29,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.5'
   gem 'shoulda-matchers', require: false
   gem 'valid_attribute'
+  gem "dotenv-rails"
 end
 
 group :production do
@@ -36,4 +37,7 @@ group :production do
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-gem 'carrierwave', '~> 1.0'
+
+gem 'carrierwave'
+gem 'fog'
+gem 'fog-aws'
