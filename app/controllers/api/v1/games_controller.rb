@@ -19,11 +19,12 @@ class Api::V1::GamesController < ApplicationController
       review_to_send[:created_at] = review.created_at
       @reviews << review_to_send
     end
-    if user_signed_in?
-      user = current_user.id
-    else
-      user = user_signed_in?
-    end
+
+    user = if user_signed_in?
+            current_user.id
+          else
+            user_signed_in?
+          end
     render json: { reviews: @reviews, user: user }
   end
 end
