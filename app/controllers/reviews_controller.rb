@@ -1,5 +1,4 @@
 class ReviewsController < ApplicationController
-
   def index
     if user_signed_in? && current_user.admin?
       @reviews = Review.all

@@ -61,10 +61,17 @@ feature 'expectations for an admin' do
 
   scenario 'admin can delete a review' do
     bob = FactoryGirl.create(:admin)
-    game = Game.create(title: "Game Game", description:"It nice",
-      platform: "NES")
-    review = Review.create(body: "Game review", rating: '3', game: game,
-      user: bob)
+    game = Game.create(
+      title: "Game Game",
+      description: "It nice",
+      platform: "NES"
+      )
+    Review.create(
+      body: "Game review",
+      rating: '3',
+      game: game,
+      user: bob
+      )
 
     visit new_user_session_path
     fill_in 'Email', with: bob.email
