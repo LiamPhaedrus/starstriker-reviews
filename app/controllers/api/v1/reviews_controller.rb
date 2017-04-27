@@ -35,13 +35,13 @@ class Api::V1::ReviewsController < ApplicationController
         review: review,
         user: current_user,
         vote: update_params['vote']
-        )
+      )
 
       if new_vote.valid?
         new_vote.save
         render json: {
           status: 201,
-          message: ("You voted on a review!"),
+          message: "You voted on a review!",
           reviews: updated_reviews
         }.to_json
       else
@@ -53,7 +53,7 @@ class Api::V1::ReviewsController < ApplicationController
     elsif updown.update!(vote: update_params['vote'])
       render json: {
         status: 201,
-        message: ("you updated your vote!"),
+        message: "you updated your vote!",
         reviews: updated_reviews
       }.to_json
     else
