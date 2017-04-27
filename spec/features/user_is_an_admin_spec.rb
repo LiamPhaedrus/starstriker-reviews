@@ -45,6 +45,23 @@ feature 'expectations for an admin' do
     expect(page).to_not have_content('joeojoe')
   end
 
+  scenario 'admin clicks games and removes user from database' do
+    bob = FactoryGirl.create(:admin)
+    game = FactoryGirl.create(:game)
+
+    visit new_user_session_path
+    fill_in 'Email', with: bob.email
+    fill_in 'Username', with: bob.username
+    fill_in 'Password', with: bob.password
+    click_button 'Log in'
+
+    expect(page).to have_content(game.title)
+
+    first(:link, 'delete').click
+
+    expect(page).to_not have_content(game.title)
+  end
+
   scenario 'admin can go to list of reviews from profile page' do
     bob = FactoryGirl.create(:admin)
 

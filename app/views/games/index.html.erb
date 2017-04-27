@@ -1,16 +1,16 @@
 <h1>Starstriker's Retro Game Reviews!</h1>
 
 
-<div class="game_list">
+<div class="game_list_header">
   <h2>Game List:</h2>
-  <ul>
+  <div class="game-list">
     <% @games.each do |game| %>
       <%if user_signed_in? && current_user.admin? %>
-        <span><%= link_to game.title, game %></span>
-        <span><%= link_to "delete", game, method: :delete, data: { confirm: "You sure?" } %> </span><br/>
+        <span class='animated slideInLeft'><%= link_to game.title, game %></span>
+        <span class='animated slideInLeft'><%= link_to "delete", game, method: :delete, data: { confirm: "You sure?" } %> </span><br/>
        <%else%>
         <p><%= link_to game.title, game %></p>
        <%end%>
     <% end %>
-  </ul>
+  </div>
 </div>
