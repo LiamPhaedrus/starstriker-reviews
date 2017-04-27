@@ -12,40 +12,40 @@
   </head>
 
   <body>
+    <div class="layer">
 
+      <div class="top-bar">
+        <div class="top-bar-left">
+          <ul class="dropdown menu" data-dropdown-menu>
+            <li><a href="/">Home</a></li>
+            <% if user_signed_in? %>
+              <li><%= link_to "Profile", user_path(current_user.id) %></li>
+              <li><%= link_to "Add Game", new_game_path %></li>
+              <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
+            <% else %>
+              <li><%= link_to "Sign up", new_user_registration_path %></li>
+              <li><%= link_to "Log in", new_user_session_path %></li>
 
-    <div class="top-bar">
-      <div class="top-bar-left">
-        <ul class="dropdown menu" data-dropdown-menu>
-          <li><a href="/">Home</a></li>
-          <% if user_signed_in? %>
-            <li><%= link_to "Profile", user_path(current_user.id) %></li>
-            <li><%= link_to "Add Game", new_game_path %></li>
-            <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
-          <% else %>
-            <li><%= link_to "Sign up", new_user_registration_path %></li>
-            <li><%= link_to "Log in", new_user_session_path %></li>
-
-          <% end %>
-        </ul>
-      </div>
-      <div class="top-bar-right">
-        <ul class="menu">
-          <li class="has-form">
-            <%= form_tag games_path, method: :get do %>
-              <%= text_field_tag :query %>
-              <%= submit_tag "Search" %>
             <% end %>
-          </li>
-        </ul>
+          </ul>
+        </div>
+        <div class="top-bar-right">
+          <ul class="menu">
+            <li class="has-form search-bar">
+              <%= form_tag games_path, method: :get do %>
+                <%= submit_tag "Search Games" %>
+                <%= text_field_tag :query %>
+              <% end %>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+
+      <div class="row column main">
+        <%= yield %>
       </div>
     </div>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-
-    <div class="row column main">
-      <%= yield %>
-    </div>
-
   </body>
 </html>

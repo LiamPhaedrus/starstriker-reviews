@@ -38,6 +38,7 @@ class ReviewShowContainer extends Component {
     })
     .then(response => response.json())
     .then(responseData => {
+      console.log(responseData.review)
       this.setState({ reviews: [...this.state.reviews, responseData.review] })
     })
   }
