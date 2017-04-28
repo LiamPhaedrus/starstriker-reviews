@@ -14,6 +14,22 @@ feature 'expectations for an admin' do
     expect(page).to have_link('Users')
   end
 
+  scenario "users who are not admins can't go to the Users index page" do
+    joe = FactoryGirl.create(:user)
+    visit new_user_session_path
+    fill_in 'Email', with: joe.email
+    fill_in 'Username', with: joe.username
+    fill_in 'Password', with: joe.password
+    click_button 'Log in'
+    click_link 'Profile'
+
+    expect(page).to_not have_link('Users')
+
+    visit users_path
+    expect(page).to have_content('Game List:')
+    expect(page).to_not have_content('Admin Edit Users Page')
+  end
+
   scenario 'admin clicks on Users and sees list of users and delete button' do
     bob = FactoryGirl.create(:admin)
 

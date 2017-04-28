@@ -41,7 +41,7 @@ const ReviewShow = (props) => {
   }
 
   return(
-    <div className={hasVoted + "review-show animated zoomInDown"}>
+    <div className={hasVoted+ " review-show " + "review-show animated zoomInDown"}>
       <p className="review-body">{body}</p>
       <p className="review-rating">{rating} stars</p>
       <p className="review-author">By: {author}</p>

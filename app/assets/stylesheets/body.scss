@@ -1,14 +1,16 @@
 body {
   background: url("http://colourlovers.com.s3.amazonaws.com/images/patterns/5371/5371460.png") !important;
   background-size: cover;
-
 }
+
 .layer {
-  background-color: rgba(254, 254, 254, .82);
+  background-color: rgba(220,220,220,0.85);
   background-size: cover;
-  height: 100vh;
+  height: '100%';
+  min-height: 100vh;
+  min-width: 100vw;
+  width: '100%';
 }
-
 
 // animation
 

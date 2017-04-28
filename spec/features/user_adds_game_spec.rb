@@ -17,6 +17,11 @@ feature "registered user can add games" do
     visit "/"
     expect(page).to_not have_content('Add Game')
   end
+  scenario "users not signed in can't go to the add a game form" do
+    visit new_game_path
+    expect(page).to have_content('Game List:')
+    expect(page).to_not have_content('New Game Form')
+  end
   scenario "signed in users can successfully add a game" do
     bob = FactoryGirl.create(:user)
     visit new_user_session_path

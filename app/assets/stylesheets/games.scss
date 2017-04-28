@@ -1,18 +1,30 @@
 .game-list a {
+  color: black;
   background-color: #ffffff;
+  text-align: center;
+  border-radius: 5px;
   float: left;
   font-weight: 500;
-  line-height: 3;
+  // line-height: 3;
   margin-left: 10px;
-  padding: 5px;
-  text-indent: 2;
+  // margin-top: 10px;
+  margin-bottom: 10px;
+  padding-top: 8px;
+  width: 200px;
+  height: 200px;
+  word-wrap: break-word;
  }
 
 .game-list a:hover {
-  text-decoration: underline;
+  color: red;
 }
 
 .game-details {
-  background-color: rgba(254, 254, 254, 0.52);
-  text-align: center;
+  background-color: rgba(254, 254, 254, 0.62);
+  border-radius: 10px;
+  padding-left: 25px;
+}
+
+.starstriker-title {
+  font-family: 'Press Start 2P', serif;
 }
