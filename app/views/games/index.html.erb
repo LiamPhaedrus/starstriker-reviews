@@ -6,10 +6,10 @@
   <div class="game-list small-9 columns small-centered large-10">
     <% @games.each do |game| %>
       <%if user_signed_in? && current_user.admin? %>
-        <span class='animated slideInLeft'><%= link_to game.title, game %></span>
-        <span class='animated slideInLeft'><%= link_to "delete", game, method: :delete, data: { confirm: "You sure?" } %> </span><br/>
+        <span class='animated slideInLeft game-box'><%= link_to game.title, game %>
+        <div><%= link_to "delete", game, method: :delete, data: { confirm: "You sure?" } %></div> </span>
        <%else%>
-        <p class='animated slideInLeft'><%= link_to game.title, game %></p>
+        <p class='animated slideInLeft game-box'><%= link_to game.title, game %></p>
        <%end%>
     <% end %>
   </div>

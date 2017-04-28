@@ -1,4 +1,4 @@
-.game-list a {
+.game-list > .game-box {
   color: black;
   background-color: #ffffff;
   text-align: center;
@@ -13,6 +13,9 @@
   width: 200px;
   height: 200px;
   word-wrap: break-word;
+ }
+ .game-list a {
+   color: black;
  }
 
 .game-list a:hover {
