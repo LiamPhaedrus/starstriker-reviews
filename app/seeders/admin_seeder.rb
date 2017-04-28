@@ -21,7 +21,7 @@ class AdminSeeder
       admin: true,
       password: 123456
     }
-  ]
+  ].freeze
 
   def self.seed!
     ADMINS.each do |admin_params|
