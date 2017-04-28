@@ -54,9 +54,18 @@ describe Api::V1::ReviewsController, type: :controller do
       ).to have_content('User must be logged in')
     end
 
-    it "successfully updates the vote count" do
+    it "successfully updates the vote count if a user has not voted before" do
       sign_in(@user)
       expect { patch :update, id: review.id, params: { id: review.id, updown: correct_upvote_params } }.to change { review.updowns.count }.by 1
+    end
+
+    it "successfully changes the vote if a user has voted before" do
+      sign_in(@user)
+      Updown.create!(user: @user, review: review, vote: false)
+      patch :update, id: review.id, params: { id: review.id, updown: correct_upvote_params }
+      expect(
+        json_parsed_response['message']
+      ).to have_content('you updated your vote')
     end
   end
 end

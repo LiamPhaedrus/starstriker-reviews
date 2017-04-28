@@ -45,7 +45,7 @@ class GameSeeder
   def self.seed!
     GAMES.each do |game_params|
       title = game_params[:title]
-      game = Game.find_or_initialize_by!(title: title)
+      game = Game.find_or_initialize_by(title: title)
       game.assign_attributes(game_params)
       game.save!
     end
