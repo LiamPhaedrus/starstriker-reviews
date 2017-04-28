@@ -63,9 +63,7 @@ class ReviewShowContainer extends Component {
 
   hasUserVoted(reviewers) {
     if (reviewers.includes(this.state.user[0])) {
-      return 'review-show voted'
-    } else {
-      return 'review-show'
+      return 'voted'
     }
   }
 

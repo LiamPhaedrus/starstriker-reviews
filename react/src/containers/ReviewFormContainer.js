@@ -85,7 +85,7 @@ constructor(props) {
           selectedOption={this.state.ratingSelected}
         />
         <div className="button-group">
-          <button className="button" onClick={this.handleClearForm}>Clear</button>
+          <button className="button" id="clear" onClick={this.handleClearForm}>Clear</button>
           <input className="button" type="submit" value="Submit" />
         </div>
       </form>
