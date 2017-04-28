@@ -8,8 +8,5 @@
 
 if Rails.env.development? || Rails.env.production?
   AdminSeeder.seed!
-end
-
-if Rails.env.production?
   GameSeeder.seed!
 end

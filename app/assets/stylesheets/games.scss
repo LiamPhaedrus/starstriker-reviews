@@ -1,18 +1,20 @@
-.game-list a {
-  color: black;
+.game-list > .game-box {
+  color: #000000;
   background-color: #ffffff;
   text-align: center;
   border-radius: 5px;
   float: left;
   font-weight: 500;
-  // line-height: 3;
   margin-left: 10px;
-  // margin-top: 10px;
   margin-bottom: 10px;
   padding-top: 8px;
   width: 200px;
   height: 200px;
   word-wrap: break-word;
+ }
+
+.game-list a {
+  color: #000000;
  }
 
 .game-list a:hover {
