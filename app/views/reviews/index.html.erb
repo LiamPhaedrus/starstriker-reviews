@@ -1,15 +1,17 @@
-<div class="game_list">
+<div class="rev-list">
   <h2>Review List:</h2>
   <ul>
     <% @games.each do |game| %>
+    <li>
       <%= game.title %>:
+      <ul>
       <% game.reviews.each do |review| %>
-        <ul>
-          <span><%= review.body %></span>
+          <li><span><%= review.body %></span>
           <span><%= link_to "delete", review, method: :delete,
-            data: { confirm: "You sure?" } %> </span><br/>
-        </ul>
+            data: { confirm: "You sure?" } %> </span></li>
       <% end %>
+      </ul>
+    </li>
     <% end %>
   </ul>
 </div>
