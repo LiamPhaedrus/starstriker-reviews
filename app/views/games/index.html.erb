@@ -9,7 +9,7 @@
         <span class='animated slideInLeft'><%= link_to game.title, game %></span>
         <span class='animated slideInLeft'><%= link_to "delete", game, method: :delete, data: { confirm: "You sure?" } %> </span><br/>
        <%else%>
-        <p><%= link_to game.title, game %></p>
+        <p class='animated slideInLeft'><%= link_to game.title, game %></p>
        <%end%>
     <% end %>
   </div>
