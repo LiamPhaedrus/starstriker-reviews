@@ -31,6 +31,7 @@ describe Api::V1::GamesController, type: :controller do
 
     describe "it returns review data" do
       it "returns review data and sign-in status to an unsigned in user" do
+        Updown.create(review: @review_one, user: @user, vote: true)
         get :show, params: { id: @game.id }
 
         expect(json_parsed_response["reviews"].length).to eq 2
@@ -40,6 +41,9 @@ describe Api::V1::GamesController, type: :controller do
         expect(
           json_parsed_response["reviews"].first
         ).to_not have_content(@review_three.body)
+        expect(
+          json_parsed_response["reviews"].first["votes"]
+        ).to have_content(@review_one.updowns.first.user.id)
         expect(json_parsed_response["user"]).to eq false
       end
       it "when signed in it returns review data and id of signed-in user" do
