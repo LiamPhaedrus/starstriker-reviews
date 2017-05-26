@@ -11,7 +11,7 @@ Starstriker Reviews is a retro video game review site. It enables users to add v
 This project was made to fulfill the Group Project assignment at Launch Academy in April 2017. The contributing team was:
 - [Liam Kopolow](https://github.com/LiamPhaedrus)
 - [Philip Morgan](https://github.com/Philip10023)
-- [Matthew Reibow](https://github.com/mriebow)
+- [Matthew Riebow](https://github.com/mriebow)
 - [Michael Winslow](https://github.com/mwinslow331)
 
 ## Heroku Link

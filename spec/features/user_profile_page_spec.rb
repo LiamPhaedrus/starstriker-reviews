@@ -12,6 +12,5 @@ feature 'user Profile page' do
     click_link 'Profile'
 
     expect(page).to have_content jerry.username
-    expect(page).to have_content jerry.email
   end
 end

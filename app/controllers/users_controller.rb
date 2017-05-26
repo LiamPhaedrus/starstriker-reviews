@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  require "pg_search"
   def show
     @user = User.find(params[:id])
   end

@@ -3,7 +3,7 @@
 
 <div class="game_list_header">
   <h2>Game List:</h2>
-  <div class="game-list small-9 columns small-centered large-10">
+  <div class="game-list large-12 columns small-9 columns small-centered ">
     <% @games.each do |game| %>
       <%if user_signed_in? && current_user.admin? %>
         <span class='animated slideInLeft game-box'><%= link_to game.title, game %>
